@@ -1,6 +1,5 @@
 version: "3.8"
 
-
 services:
   postgresql:
     image: postgres:11.4-alpine
@@ -68,6 +67,11 @@ services:
 
   cypress:
     image: cypress:latest
+    depends_on:
+      - web
+    environment:
+    # pass base url to test pointing at the web application
+      - CYPRESS_baseUrl=http://traefik:80
     ipc: host
     build: ./services/cypress
     ports:
