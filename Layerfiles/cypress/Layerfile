@@ -1,1 +1,3 @@
 FROM ../base
+
+RUN docker-compose up --exit-code-from cypress cypress
