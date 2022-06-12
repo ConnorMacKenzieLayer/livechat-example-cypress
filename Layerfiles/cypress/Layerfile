@@ -4,4 +4,4 @@ FROM ../base
 SECRET ENV CYPRESS_RECORD_KEY
 
 SPLIT 2
-RUN docker-compose up --exit-code-from cypress cypress
+RUN docker-compose --profile cypress up --exit-code-from cypress cypress
