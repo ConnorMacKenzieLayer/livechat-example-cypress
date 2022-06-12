@@ -3,5 +3,5 @@ FROM ../base
 # CYPRESS_RECORD_KEY is added in the "secrets" tab of the webapp.io dashboard
 SECRET ENV CYPRESS_RECORD_KEY
 
-SPLIT 1
+SPLIT 2
 RUN docker-compose --profile cypress up --exit-code-from cypress cypress
