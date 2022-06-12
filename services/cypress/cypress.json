@@ -1,4 +1,5 @@
 {
+  "project": "7ahc2z",
   "baseUrl": "http://traefik",
   "video": true,
   "screenshotsFolder": "public/cypress/screenshots",
