@@ -24,7 +24,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tmp/download
-COPY download.sh /tmp/download.sh
+COPY ./download.sh /tmp/download.sh
 RUN mkdir public && bash /tmp/download.sh && rm /tmp/download.sh
 RUN npm install -g http-server-spa
 
