@@ -7,6 +7,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
+RUN pwd
+RUN ls
 COPY ./services/web/package.json package-lock.json ./
 RUN npm install --production
 
