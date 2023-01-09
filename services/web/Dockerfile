@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY ./services/web/Dockerfile/package.json package-lock.json ./
+COPY ./services/web/package.json package-lock.json ./
 RUN npm install --production
 
 COPY ./services/web/src src
@@ -24,7 +24,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tmp/download
-COPY ./services/web/Dockerfile/download.sh /tmp/download.sh
+COPY ./services/web/download.sh /tmp/download.sh
 RUN mkdir public && bash /tmp/download.sh && rm /tmp/download.sh
 RUN npm install -g http-server-spa
 
