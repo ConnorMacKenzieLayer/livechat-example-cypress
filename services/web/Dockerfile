@@ -9,7 +9,7 @@ RUN apt-get update && \
 WORKDIR /app
 RUN pwd | echo
 RUN ls | echo
-COPY ./services/web/package.json package-lock.json ./
+COPY services/web/package.json package-lock.json ./
 RUN npm install --production
 
 COPY ./services/web/src src
