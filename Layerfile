@@ -1,3 +1,4 @@
+
 FROM vm/ubuntu:18.04
 
 # install docker-ce (from tutorial for ubuntu)
@@ -13,10 +14,8 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-c
     chmod +x /usr/local/bin/docker-compose
 
 # copy the root (i.e., repository root) to /root in the runner
-COPY / .
+COPY / /root
 
-RUN echo hello
-
-RUN REPEATABLE docker-compose up -d --build --force-recreate --remove-orphans && sleep 5
+RUN REPEATABLE docker-compose up -d --build --force-recreate --remove-orphans && sleep 6
 
 EXPOSE WEBSITE localhost:8000

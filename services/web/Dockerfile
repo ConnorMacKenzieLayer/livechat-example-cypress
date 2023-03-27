@@ -7,13 +7,11 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-RUN pwd
-RUN ls
-COPY ./services/web/package.json package-lock.json ./
+COPY package.json package-lock.json ./
 RUN npm install --production
 
-COPY ./services/web/src src
-COPY ./services/web/public public
+COPY src src
+COPY public public
 RUN npm run build
 
 
@@ -26,7 +24,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tmp/download
-COPY ./services/web/download.sh /tmp/download.sh
+COPY download.sh /tmp/download.sh
 RUN mkdir public && bash /tmp/download.sh && rm /tmp/download.sh
 RUN npm install -g http-server-spa
 
