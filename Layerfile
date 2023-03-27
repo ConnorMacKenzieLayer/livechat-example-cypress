@@ -18,6 +18,6 @@ COPY / /root
 
 RUN docker-compose up -d --build api migrate
 
-RUN REPEATABLE docker-compose up -d --build --force-recreate --remove-orphans web && sleep 6
+RUN REPEATABLE docker-compose up -d --build --force-recreate --remove-orphans web cypress && sleep 6
 
 EXPOSE WEBSITE localhost:8000
